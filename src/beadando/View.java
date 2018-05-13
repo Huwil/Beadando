@@ -14,14 +14,19 @@ public class View extends JFrame {
 
 	private JPanel contentPane, fooldal_tab, bank_tab, bankfiok_tab, ugyfel_tab, szamlak_tab;
 	
+	private BankTM banktm;
+	private BankfiokTM bankfioktm;
+	private UgyfelTM ugyfeltm;
+	private SzamlakTM szamlaktm;
+	
 	private Font fnt = new Font("Arial", Font.BOLD, 10);
 	private File fbe;
 	
-	private String[] elem = {"V·lasszon!", "Helyi .txt f·jl", "Helyi .csv f·jl"};
-	private String[] elem2 = {"V·lasszon!", "<<Forr·s>>", "Helyi .txt f·jl", "Helyi .csv f·jl"};
-	private String bank_forras = "V·lasszon!", bankfiok_forras = "V·lasszon!", ugyfel_forras = "V·lasszon!", szamlak_forras = "V·lasszon!";
-	private String bank_cel = "V·lasszon!", bankfiok_cel = "V·lasszon!", ugyfel_cel = "V·lasszon!", szamlak_cel = "V·lasszon!";
-	private String choosefiletype="Elıszˆr v·lassza ki a beolvasni kÌv·nt f·jl tÌpus·t!", choosesavetype="Elıszˆr v·lassza ki a menteni kÌv·nt f·jl tÌpus·t!", nosavedata="Nincs kiÌrhatÛ adat!", nosavename="Nincs megadva a menteni kÌv·nt f·jl neve!", nosource="Nincs megadva a Forr·s!";
+	private String[] elem = {"V√°lasszon!", "Helyi .txt f√°jl", "Helyi .csv f√°jl"};
+	private String[] elem2 = {"V√°lasszon!", "<<Forr√°s>>", "Helyi .txt f√°jl", "Helyi .csv f√°jl"};
+	private String bank_forras = "V√°lasszon!", bankfiok_forras = "V√°lasszon!", ugyfel_forras = "V√°lasszon!", szamlak_forras = "V√°lasszon!";
+	private String bank_cel = "V√°lasszon!", bankfiok_cel = "V√°lasszon!", ugyfel_cel = "V√°lasszon!", szamlak_cel = "V√°lasszon!";
+	private String choosefiletype="El√µsz√∂r v√°lassza ki a beolvasni k√≠v√°nt f√°jl t√≠pus√°t!", choosesavetype="El√µsz√∂r v√°lassza ki a menteni k√≠v√°nt f√°jl t√≠pus√°t!", nosavedata="Nincs ki√≠rhat√≥ adat!", nosavename="Nincs megadva a menteni k√≠v√°nt f√°jl neve!", nosource="Nincs megadva a Forr√°s!";
 	@SuppressWarnings("unused")
 	private String bankkerkif = "bankid", bankfiokkerkif = "fiokid", ugyfelkerkif = "szemszam", szamlakkerkif = "szamlaszam";
 	
@@ -41,11 +46,6 @@ public class View extends JFrame {
 	
 	private JLabel bank_label1, bankfiok_label1, ugyfel_label1, szamlak_label1, copyright;
 	private JLabel fooldal1_lbl, fooldal2_lbl, fooldal3_lbl, fooldal4_lbl, fooldal5_lbl, fooldal6_lbl;
-	
-	private BankTM banktm;
-	private BankfiokTM bankfioktm;
-	private UgyfelTM ugyfeltm;
-	private SzamlakTM szamlaktm;
 	/**
 	 * Launch the application.
 	 */
@@ -78,7 +78,7 @@ public class View extends JFrame {
 		
 		copyright = new JLabel();
 		copyright.setBounds(130, 330, 200, 20);
-		copyright.setText("RÈvai Istv·n - SYO9D9, 2018.");
+		copyright.setText("R√©vai Istv√°n - SYO9D9, 2018.");
 		contentPane.add(copyright);
 		
 		JTabbedPane tabbedpane = new JTabbedPane();
@@ -91,32 +91,32 @@ public class View extends JFrame {
 		fooldal_tab.setLayout(null);
 		fooldal_tab.setBackground(Color.WHITE);
 
-		fooldal1_lbl = new JLabel("Ez a feladat a Java programoz·s cÌm˚ t·rgyhoz kÈsz¸lt egyÈni feladat.");
+		fooldal1_lbl = new JLabel("Ez a feladat a Java programoz√°s c√≠m√ª t√°rgyhoz k√©sz√ºlt egy√©ni feladat.");
 		fooldal1_lbl.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		fooldal1_lbl.setBounds(10, 10, 420, 48);
 		fooldal_tab.add(fooldal1_lbl);
 		
-		fooldal2_lbl = new JLabel("A feladat 4 t·bla grafikus kezelÈsÈt mutatja be k¸lˆnbˆzı m˚veletekkel (beolvas·s,");
+		fooldal2_lbl = new JLabel("A feladat 4 t√°bla grafikus kezel√©s√©t mutatja be k√ºl√∂nb√∂z√µ m√ªveletekkel (beolvas√°s,");
 		fooldal2_lbl.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		fooldal2_lbl.setBounds(10, 100, 420, 30);
 		fooldal_tab.add(fooldal2_lbl);
 		
-		fooldal3_lbl = new JLabel("list·z·s, mÛdosÌt·s, tˆrlÈs, kiÌr·s). A 4 t·bla elemei egym·stÛl f¸ggetlen¸l kezelhetıek.");
+		fooldal3_lbl = new JLabel("list√°z√°s, m√≥dos√≠t√°s, t√∂rl√©s, ki√≠r√°s). A 4 t√°bla elemei egym√°st√≥l f√ºggetlen√ºl kezelhet√µek.");
 		fooldal3_lbl.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		fooldal3_lbl.setBounds(10, 130, 420, 30);
 		fooldal_tab.add(fooldal3_lbl);
 		
-		fooldal4_lbl = new JLabel("A v·lasztott tÈm·m alapj·n egy bank-nyilv·ntartÛ programot kÈszÌtettem, amely bankokrÛl,");
+		fooldal4_lbl = new JLabel("A v√°lasztott t√©m√°m alapj√°n egy bank-nyilv√°ntart√≥ programot k√©sz√≠tettem, amely bankokr√≥l,");
 		fooldal4_lbl.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		fooldal4_lbl.setBounds(10, 160, 420, 30);
 		fooldal_tab.add(fooldal4_lbl);
 		
-		fooldal5_lbl = new JLabel("a hozz·juk tartozÛ bankfiÛkokrÛl, ¸gyfelekrıl, valamint a hozz·juk tartozÛ banksz·ml·krÛl");
+		fooldal5_lbl = new JLabel("a hozz√°juk tartoz√≥ bankfi√≥kokr√≥l, √ºgyfelekr√µl, valamint a hozz√°juk tartoz√≥ banksz√°ml√°kr√≥l");
 		fooldal5_lbl.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		fooldal5_lbl.setBounds(10, 190, 420, 30);
 		fooldal_tab.add(fooldal5_lbl);
 		
-		fooldal6_lbl = new JLabel("kÈszÌt egy grafikus kezelı fel¸letet.");
+		fooldal6_lbl = new JLabel("k√©sz√≠t egy grafikus kezel√µ fel√ºletet.");
 		fooldal6_lbl.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		fooldal6_lbl.setBounds(10, 220, 420, 30);
 		fooldal_tab.add(fooldal6_lbl);
@@ -128,7 +128,7 @@ public class View extends JFrame {
 		bank_tab.setLayout(null);
 		bank_tab.setBackground(Color.WHITE);
 		
-		BufferedImage bankPicture = ImageIO.read(new File("C:\\Users\\RÈvai Istv·n\\Desktop\\BeadandÛ\\bank.png"));
+		BufferedImage bankPicture = ImageIO.read(new File("C:\\Users\\R√©vai Istv√°n\\Desktop\\Beadand√≥\\bank.png"));
 		JLabel bankpicLabel = new JLabel(new ImageIcon(bankPicture));
 		bankpicLabel.setBounds(0, 60, 285, 170);
 		bankpicLabel.setVisible(true);
@@ -136,7 +136,7 @@ public class View extends JFrame {
 		
 		//combobox
 		bank_combobox = new JComboBox();
-		bank_combobox.setToolTipText("A beolvasni kÌv·nt f·jl tÌpus·nak kiv·laszt·sa.");
+		bank_combobox.setToolTipText("A beolvasni k√≠v√°nt f√°jl t√≠pus√°nak kiv√°laszt√°sa.");
 		bank_combobox.setBounds(0, 0, 100, 20);
 		for (String s: elem) bank_combobox.addItem(s);
 		bank_combobox.addActionListener(new ActionListener() {
@@ -147,14 +147,14 @@ public class View extends JFrame {
 		});
 		
 		//file-selecting button
-		bank_filebutton = new JButton("BetˆltÈs");
-		bank_filebutton.setToolTipText("A betˆlteni kÌv·nt f·jl tallÛz·sa.");
+		bank_filebutton = new JButton("Bet√∂lt√©s");
+		bank_filebutton.setToolTipText("A bet√∂lteni k√≠v√°nt f√°jl tall√≥z√°sa.");
 		bank_filebutton.setBounds(115, 0, 100, 20);
 		bank_filebutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(bank_forras.equals("V·lasszon!")) 
+				if(bank_forras.equals("V√°lasszon!")) 
 					DataChecker.showMD(choosefiletype, 0);
-				if(bank_forras.equals("Helyi .csv f·jl")) {
+				if(bank_forras.equals("Helyi .csv f√°jl")) {
 					FileDialog fd = new FileDialog(new JFrame(), " ", FileDialog.LOAD);
 					
 					fd.setFile("*.csv");
@@ -166,7 +166,7 @@ public class View extends JFrame {
 						BankFileManager.CsvReader(fbe, banktm);
 					}
 				}
-				if(bank_forras.equals("Helyi .txt f·jl")) {
+				if(bank_forras.equals("Helyi .txt f√°jl")) {
 					FileDialog fd = new FileDialog(new JFrame(), " ", FileDialog.LOAD);
 					
 					fd.setFile("*.txt");
@@ -183,7 +183,7 @@ public class View extends JFrame {
 		});
 		
 		//label
-		bank_label1 = new JLabel("Az adatok sz·ma:");
+		bank_label1 = new JLabel("Az adatok sz√°ma:");
 		bank_label1.setBounds(320, 0, 100, 20);
 		
 		//the number of data
@@ -195,7 +195,7 @@ public class View extends JFrame {
 		
 		//list button
 		bank_listbutton = new JButton("Bank lista");
-		bank_listbutton.setToolTipText("A megadott f·jl adatainak kilist·z·sa.");
+		bank_listbutton.setToolTipText("A megadott f√°jl adatainak kilist√°z√°sa.");
 		bank_listbutton.setBounds(300, 60, 130, 20);
 		bank_listbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -205,7 +205,7 @@ public class View extends JFrame {
 		});
 		
 		//bank_newdatabutton
-		bank_newbutton = new JButton("⁄j adat");
+		bank_newbutton = new JButton("√öj adat");
 		bank_newbutton.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
@@ -224,17 +224,17 @@ public class View extends JFrame {
 				}
 			}
 		});
-		bank_newbutton.setToolTipText("⁄j adat felvitele.");
+		bank_newbutton.setToolTipText("√öj adat felvitele.");
 		bank_newbutton.setBounds(300, 100, 130, 20);
 		
 		//bank_modifydatabutton
-		bank_modifybutton = new JButton("Adat mÛdosÌt·sa");
-		bank_modifybutton.setToolTipText("MeglÈvı adat mÛdosÌt·sa");
+		bank_modifybutton = new JButton("Adat m√≥dos√≠t√°sa");
+		bank_modifybutton.setToolTipText("Megl√©v√µ adat m√≥dos√≠t√°sa");
 		bank_modifybutton.setBounds(300, 140, 130, 20);
 		bank_modifybutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (banktm.getRowCount()==0) 
-					DataChecker.showMD("Nincs mÛdosÌthatÛ adat!", 0);
+					DataChecker.showMD("Nincs m√≥dos√≠that√≥ adat!", 0);
 				else {
 					BankMod mod = new BankMod(View.this, banktm);
 					mod.setVisible(true);
@@ -243,13 +243,13 @@ public class View extends JFrame {
 		});
 		
 		//bank_deletebutton
-		bank_deletebutton = new JButton("Adat tˆrlÈse");
-		bank_deletebutton.setToolTipText("A megadott adat tˆrlÈse.");
+		bank_deletebutton = new JButton("Adat t√∂rl√©se");
+		bank_deletebutton.setToolTipText("A megadott adat t√∂rl√©se.");
 		bank_deletebutton.setBounds(300, 180, 130, 20);
 		bank_deletebutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (banktm.getRowCount()==0) 
-					DataChecker.showMD("Nincs tˆrˆlhetı adat!", 0);
+					DataChecker.showMD("Nincs t√∂r√∂lhet√µ adat!", 0);
 				else {
 					BankDel del = new BankDel(View.this, banktm);
 					del.setVisible(true);
@@ -259,65 +259,65 @@ public class View extends JFrame {
 		});
 		
 		//bank_savebutton
-		bank_savebutton = new JButton("MentÈs");
+		bank_savebutton = new JButton("Ment√©s");
 		bank_savebutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(bank_cel.equals("V·lasszon!"))
+				if(bank_cel.equals("V√°lasszon!"))
 					DataChecker.showMD(choosesavetype, 1);
 				else if(banktm.getRowCount()==0)
 					DataChecker.showMD(nosavedata, 0);
-				else if(bank_cel.equals("Helyi .csv f·jl")) {
+				else if(bank_cel.equals("Helyi .csv f√°jl")) {
 					if(bank_outfilename.getText().length()==0)
 						DataChecker.showMD(nosavename, 0);
 					else {
 						BankFileManager.CsvWriter(bank_outfilename.getText().toString(), banktm);
 					}
-				} else if(bank_cel.equals("Helyi .txt f·jl")) {
+				} else if(bank_cel.equals("Helyi .txt f√°jl")) {
 					if(bank_outfilename.getText().length()==0)
 						DataChecker.showMD(nosavename, 0);
 					else {
 						BankFileManager.TxtWriter(bank_outfilename.getText().toString(), banktm);
 					}
 				}
-				else if (bank_cel.equals("<<Forr·s>>") && bank_forras.equals("Helyi .csv f·jl")) {
+				else if (bank_cel.equals("<<Forr√°s>>") && bank_forras.equals("Helyi .csv f√°jl")) {
 					String kiirfnev = bank_infilename.getText();
 					bank_outfilename.setText(kiirfnev);
 					BankFileManager.CsvWriter(kiirfnev, banktm);
 				}
-				else if (bank_cel.equals("<<Forr·s>>") && bank_forras.equals("Helyi .txt f·jl")) {
+				else if (bank_cel.equals("<<Forr√°s>>") && bank_forras.equals("Helyi .txt f√°jl")) {
 					String kiirfnev = bank_infilename.getText();
 					bank_outfilename.setText(kiirfnev);
 					BankFileManager.TxtWriter(kiirfnev, banktm);
 				}
 			}
 		});
-		bank_savebutton.setToolTipText("Adatok mentÈse a kiv·lasztott f·jlba.");
+		bank_savebutton.setToolTipText("Adatok ment√©se a kiv√°lasztott f√°jlba.");
 		bank_savebutton.setBounds(300, 250, 130, 20);
 		
 		//bank_savecombobox
 		bank_savecombobox = new JComboBox();
-		bank_savecombobox.setToolTipText("A menteni kÌv·nt f·jl tÌpus·nak kiv·laszt·sa.");
+		bank_savecombobox.setToolTipText("A menteni k√≠v√°nt f√°jl t√≠pus√°nak kiv√°laszt√°sa.");
 		bank_savecombobox.setBounds(0, 250, 100, 20);
 		for (String s: elem2) bank_savecombobox.addItem(s);
 		bank_savecombobox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				bank_cel = (String)bank_savecombobox.getSelectedItem();
-				if (bank_cel.equals("<<Forr·s>>") && bank_infilename.getText().equals(""))
+				if (bank_cel.equals("<<Forr√°s>>") && bank_infilename.getText().equals(""))
 					DataChecker.showMD(nosource, 0);
-				if (bank_cel.equals("<<Forr·s>>") && !bank_infilename.getText().equals(""))
+				if (bank_cel.equals("<<Forr√°s>>") && !bank_infilename.getText().equals(""))
 					bank_outfilename.setText(bank_infilename.getText());
 			}
 		});
 		
 		//bank_outfilename
 		bank_outfilename = new JTextField();
-		bank_outfilename.setText("f·jlnÈv.kiterjesztÈs");
+		bank_outfilename.setText("f√°jln√©v.kiterjeszt√©s");
 		bank_outfilename.setBounds(115, 250, 170, 20);
 
 		//bank_helpbutton
 		bank_helpbutton = new JButton("?");
 		bank_helpbutton.setFont(fnt);
-		bank_helpbutton.setToolTipText("S˙gÛ");
+		bank_helpbutton.setToolTipText("S√∫g√≥");
 		bank_helpbutton.setBounds(390, 290, 40, 40);
 		bank_helpbutton.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
@@ -357,7 +357,7 @@ public class View extends JFrame {
 		bankfiok_tab.setLayout(null);
 		bankfiok_tab.setBackground(Color.WHITE);
 		
-		BufferedImage bankfiokPicture = ImageIO.read(new File("C:\\Users\\RÈvai Istv·n\\Desktop\\BeadandÛ\\bankfiok.jpg"));
+		BufferedImage bankfiokPicture = ImageIO.read(new File("C:\\Users\\R√©vai Istv√°n\\Desktop\\Beadand√≥\\bankfiok.jpg"));
 		JLabel bankfiokpicLabel = new JLabel(new ImageIcon(bankfiokPicture));
 		bankfiokpicLabel.setBounds(0, 60, 285, 170);
 		bankfiokpicLabel.setVisible(true);
@@ -365,7 +365,7 @@ public class View extends JFrame {
 		
 		//combobox
 		bankfiok_combobox = new JComboBox();
-		bankfiok_combobox.setToolTipText("A beolvasni kÌv·nt f·jl tÌpus·nak kiv·laszt·sa.");
+		bankfiok_combobox.setToolTipText("A beolvasni k√≠v√°nt f√°jl t√≠pus√°nak kiv√°laszt√°sa.");
 		bankfiok_combobox.setBounds(0, 0, 100, 20);
 		for (String s: elem) bankfiok_combobox.addItem(s);
 		bankfiok_combobox.addActionListener(new ActionListener() {
@@ -376,14 +376,14 @@ public class View extends JFrame {
 		});
 		
 		//file-selecting button
-		bankfiok_filebutton = new JButton("BetˆltÈs");
-		bankfiok_filebutton.setToolTipText("A betˆlteni kÌv·nt f·jl tallÛz·sa.");
+		bankfiok_filebutton = new JButton("Bet√∂lt√©s");
+		bankfiok_filebutton.setToolTipText("A bet√∂lteni k√≠v√°nt f√°jl tall√≥z√°sa.");
 		bankfiok_filebutton.setBounds(115, 0, 100, 20);
 		bankfiok_filebutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(bankfiok_forras.equals("V·lasszon!")) 
+				if(bankfiok_forras.equals("V√°lasszon!")) 
 					DataChecker.showMD(choosefiletype, 0);
-				if(bankfiok_forras.equals("Helyi .csv f·jl")) {
+				if(bankfiok_forras.equals("Helyi .csv f√°jl")) {
 					FileDialog fd = new FileDialog(new JFrame(), " ", FileDialog.LOAD);
 					
 					fd.setFile("*.csv");
@@ -395,7 +395,7 @@ public class View extends JFrame {
 						bankfiok_infilename.setText(befnev);
 					}
 				}
-				if(bankfiok_forras.equals("Helyi .txt f·jl")) {
+				if(bankfiok_forras.equals("Helyi .txt f√°jl")) {
 					FileDialog fd = new FileDialog(new JFrame(), " ", FileDialog.LOAD);
 					
 					fd.setFile("*.txt");
@@ -412,7 +412,7 @@ public class View extends JFrame {
 		});
 		
 		//label
-		bankfiok_label1 = new JLabel("Az adatok sz·ma:");
+		bankfiok_label1 = new JLabel("Az adatok sz√°ma:");
 		bankfiok_label1.setBounds(320, 0, 100, 20);
 		
 		//the number of data
@@ -423,8 +423,8 @@ public class View extends JFrame {
 		bankfiokdb.setColumns(10);
 		
 		//list button
-		bankfiok_listbutton = new JButton("BankfiÛk lista");
-		bankfiok_listbutton.setToolTipText("A megadott f·jl adatainak kilist·z·sa.");
+		bankfiok_listbutton = new JButton("Bankfi√≥k lista");
+		bankfiok_listbutton.setToolTipText("A megadott f√°jl adatainak kilist√°z√°sa.");
 		bankfiok_listbutton.setBounds(300, 60, 130, 20);
 		bankfiok_listbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -434,7 +434,7 @@ public class View extends JFrame {
 		});
 		
 		//bankfiok_newdatabutton
-		bankfiok_newbutton = new JButton("⁄j adat");
+		bankfiok_newbutton = new JButton("√öj adat");
 		bankfiok_newbutton.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
@@ -453,18 +453,18 @@ public class View extends JFrame {
 				}
 			}
 		});
-		bankfiok_newbutton.setToolTipText("⁄j adat felvitele.");
+		bankfiok_newbutton.setToolTipText("√öj adat felvitele.");
 		bankfiok_newbutton.setBounds(300, 100, 130, 20);
 		
 		
 		//bankfiok_modifydatabutton
-		bankfiok_modifybutton = new JButton("Adat mÛdosÌt·sa");
-		bankfiok_modifybutton.setToolTipText("MeglÈvı adat mÛdosÌt·sa");
+		bankfiok_modifybutton = new JButton("Adat m√≥dos√≠t√°sa");
+		bankfiok_modifybutton.setToolTipText("Megl√©v√µ adat m√≥dos√≠t√°sa");
 		bankfiok_modifybutton.setBounds(300, 140, 130, 20);
 		bankfiok_modifybutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (bankfioktm.getRowCount()==0) 
-					DataChecker.showMD("Nincs mÛdosÌthatÛ adat!", 0);
+					DataChecker.showMD("Nincs m√≥dos√≠that√≥ adat!", 0);
 				else {
 					BankfiokMod mod = new BankfiokMod(View.this, bankfioktm);
 					mod.setVisible(true);
@@ -474,13 +474,13 @@ public class View extends JFrame {
 		
 		
 		//bankfiok_deletebutton
-		bankfiok_deletebutton = new JButton("Adat tˆrlÈse");
-		bankfiok_deletebutton.setToolTipText("A megadott adat tˆrlÈse.");
+		bankfiok_deletebutton = new JButton("Adat t√∂rl√©se");
+		bankfiok_deletebutton.setToolTipText("A megadott adat t√∂rl√©se.");
 		bankfiok_deletebutton.setBounds(300, 180, 130, 20);
 		bankfiok_deletebutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (bankfioktm.getRowCount()==0) 
-					DataChecker.showMD("Nincs tˆrˆlhetı adat!", 0);
+					DataChecker.showMD("Nincs t√∂r√∂lhet√µ adat!", 0);
 				else {
 					BankfiokDel del = new BankfiokDel(View.this, bankfioktm);
 					del.setVisible(true);
@@ -493,7 +493,7 @@ public class View extends JFrame {
 		//bankfiok_helpbutton
 		bankfiok_helpbutton = new JButton("?");
 		bankfiok_helpbutton.setFont(fnt);
-		bankfiok_helpbutton.setToolTipText("S˙gÛ");
+		bankfiok_helpbutton.setToolTipText("S√∫g√≥");
 		bankfiok_helpbutton.setBounds(390, 290, 40, 40);
 		bankfiok_helpbutton.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
@@ -504,59 +504,59 @@ public class View extends JFrame {
 		});
 		
 		//bankfiok_savebutton
-		bankfiok_savebutton = new JButton("MentÈs");
+		bankfiok_savebutton = new JButton("Ment√©s");
 		bankfiok_savebutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(bankfiok_cel.equals("V·lasszon!"))
+				if(bankfiok_cel.equals("V√°lasszon!"))
 					DataChecker.showMD(choosesavetype, 1);
 				else if(bankfioktm.getRowCount()==0)
 					DataChecker.showMD(nosavedata, 0);
-				else if(bankfiok_cel.equals("Helyi .csv f·jl")) {
+				else if(bankfiok_cel.equals("Helyi .csv f√°jl")) {
 					if(bankfiok_outfilename.getText().length()==0)
 						DataChecker.showMD(nosavename, 0);
 					else {
 						BankfiokFileManager.CsvWriter(bankfiok_outfilename.getText().toString(), bankfioktm);
 					}
-				} else if(bankfiok_cel.equals("Helyi .txt f·jl")) {
+				} else if(bankfiok_cel.equals("Helyi .txt f√°jl")) {
 					if(bankfiok_outfilename.getText().length()==0)
 						DataChecker.showMD(nosavename, 0);
 					else {
 						BankfiokFileManager.TxtWriter(bankfiok_outfilename.getText().toString(), bankfioktm);
 					}
 				}
-				else if (bankfiok_cel.equals("<<Forr·s>>") && bankfiok_forras.equals("Helyi .csv f·jl")) {
+				else if (bankfiok_cel.equals("<<Forr√°s>>") && bankfiok_forras.equals("Helyi .csv f√°jl")) {
 					String kiirfnev = bankfiok_infilename.getText();
 					bankfiok_outfilename.setText(kiirfnev);
 					BankfiokFileManager.CsvWriter(kiirfnev, bankfioktm);
 				}
-				else if (bankfiok_cel.equals("<<Forr·s>>") && bankfiok_forras.equals("Helyi .txt f·jl")) {
+				else if (bankfiok_cel.equals("<<Forr√°s>>") && bankfiok_forras.equals("Helyi .txt f√°jl")) {
 					String kiirfnev = bankfiok_infilename.getText();
 					bankfiok_outfilename.setText(kiirfnev);
 					BankfiokFileManager.TxtWriter(kiirfnev, bankfioktm);
 				}
 			}
 		});
-		bankfiok_savebutton.setToolTipText("Adatok mentÈse a kiv·lasztott f·jlba.");
+		bankfiok_savebutton.setToolTipText("Adatok ment√©se a kiv√°lasztott f√°jlba.");
 		bankfiok_savebutton.setBounds(300, 250, 130, 20);
 				
 		//bankfiok_savecombobox
 		bankfiok_savecombobox = new JComboBox();
-		bankfiok_savecombobox.setToolTipText("A menteni kÌv·nt f·jl tÌpus·nak kiv·laszt·sa.");
+		bankfiok_savecombobox.setToolTipText("A menteni k√≠v√°nt f√°jl t√≠pus√°nak kiv√°laszt√°sa.");
 		bankfiok_savecombobox.setBounds(0, 250, 100, 20);
 		for (String s: elem2) bankfiok_savecombobox.addItem(s);
 		bankfiok_savecombobox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				bankfiok_cel = (String)bankfiok_savecombobox.getSelectedItem();
-				if (bankfiok_cel.equals("<<Forr·s>>") && bankfiok_infilename.getText().equals(""))
+				if (bankfiok_cel.equals("<<Forr√°s>>") && bankfiok_infilename.getText().equals(""))
 					DataChecker.showMD(nosource, 0);
-				if (bankfiok_cel.equals("<<Forr·s>>") && !bankfiok_infilename.getText().equals(""))
+				if (bankfiok_cel.equals("<<Forr√°s>>") && !bankfiok_infilename.getText().equals(""))
 					bankfiok_outfilename.setText(bankfiok_infilename.getText());
 			}
 		});
 				
 		//bankfiok_outfilename
 		bankfiok_outfilename = new JTextField();
-		bankfiok_outfilename.setText("f·jlnÈv.kiterjesztÈs");
+		bankfiok_outfilename.setText("f√°jln√©v.kiterjeszt√©s");
 		bankfiok_outfilename.setBounds(115, 250, 170, 20);
 		
 		//bankfiok_infilename
@@ -590,7 +590,7 @@ public class View extends JFrame {
 		ugyfel_tab.setLayout(null);
 		ugyfel_tab.setBackground(Color.WHITE);
 		
-		BufferedImage ugyfelPicture = ImageIO.read(new File("C:\\Users\\RÈvai Istv·n\\Desktop\\BeadandÛ\\ugyfel.png"));
+		BufferedImage ugyfelPicture = ImageIO.read(new File("C:\\Users\\R√©vai Istv√°n\\Desktop\\Beadand√≥\\ugyfel.png"));
 		JLabel ugyfelpicLabel = new JLabel(new ImageIcon(ugyfelPicture));
 		ugyfelpicLabel.setBounds(0, 60, 285, 170);
 		ugyfelpicLabel.setVisible(true);
@@ -598,7 +598,7 @@ public class View extends JFrame {
 		
 		//combobox
 		ugyfel_combobox = new JComboBox();
-		ugyfel_combobox.setToolTipText("A beolvasni kÌv·nt f·jl tÌpus·nak kiv·laszt·sa.");
+		ugyfel_combobox.setToolTipText("A beolvasni k√≠v√°nt f√°jl t√≠pus√°nak kiv√°laszt√°sa.");
 		ugyfel_combobox.setBounds(0, 0, 100, 20);
 		for (String s: elem) ugyfel_combobox.addItem(s);
 		ugyfel_combobox.addActionListener(new ActionListener() {
@@ -609,14 +609,14 @@ public class View extends JFrame {
 		});
 		
 		//file-selecting button
-		ugyfel_filebutton = new JButton("BetˆltÈs");
-		ugyfel_filebutton.setToolTipText("A betˆlteni kÌv·nt f·jl tallÛz·sa.");
+		ugyfel_filebutton = new JButton("Bet√∂lt√©s");
+		ugyfel_filebutton.setToolTipText("A bet√∂lteni k√≠v√°nt f√°jl tall√≥z√°sa.");
 		ugyfel_filebutton.setBounds(115, 0, 100, 20);
 		ugyfel_filebutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(ugyfel_forras.equals("V·lasszon!")) 
+				if(ugyfel_forras.equals("V√°lasszon!")) 
 					DataChecker.showMD(choosefiletype, 0);
-				if(ugyfel_forras.equals("Helyi .csv f·jl")) {
+				if(ugyfel_forras.equals("Helyi .csv f√°jl")) {
 					FileDialog fd = new FileDialog(new JFrame(), " ", FileDialog.LOAD);
 					
 					fd.setFile("*.csv");
@@ -628,7 +628,7 @@ public class View extends JFrame {
 						ugyfel_infilename.setText(befnev);
 					}
 				}
-				if(ugyfel_forras.equals("Helyi .txt f·jl")) {
+				if(ugyfel_forras.equals("Helyi .txt f√°jl")) {
 					FileDialog fd = new FileDialog(new JFrame(), " ", FileDialog.LOAD);
 					
 					fd.setFile("*.txt");
@@ -645,7 +645,7 @@ public class View extends JFrame {
 		});
 		
 		//label
-		ugyfel_label1 = new JLabel("Az adatok sz·ma:");
+		ugyfel_label1 = new JLabel("Az adatok sz√°ma:");
 		ugyfel_label1.setBounds(320, 0, 100, 20);
 		
 		//the number of data
@@ -656,8 +656,8 @@ public class View extends JFrame {
 		ugyfeldb.setColumns(10);
 		
 		//list button
-		ugyfel_listbutton = new JButton("‹gyfÈl lista");
-		ugyfel_listbutton.setToolTipText("A megadott f·jl adatainak kilist·z·sa.");
+		ugyfel_listbutton = new JButton("√úgyf√©l lista");
+		ugyfel_listbutton.setToolTipText("A megadott f√°jl adatainak kilist√°z√°sa.");
 		ugyfel_listbutton.setBounds(300, 60, 130, 20);
 		ugyfel_listbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -667,7 +667,7 @@ public class View extends JFrame {
 		});
 		
 		//bankfiok_newdatabutton
-		ugyfel_newbutton = new JButton("⁄j adat");
+		ugyfel_newbutton = new JButton("√öj adat");
 		ugyfel_newbutton.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
@@ -686,18 +686,18 @@ public class View extends JFrame {
 				}
 			}
 		});
-		ugyfel_newbutton.setToolTipText("⁄j adat felvitele.");
+		ugyfel_newbutton.setToolTipText("√öj adat felvitele.");
 		ugyfel_newbutton.setBounds(300, 100, 130, 20);
 		
 		
 		//bankfiok_modifydatabutton
-		ugyfel_modifybutton = new JButton("Adat mÛdosÌt·sa");
-		ugyfel_modifybutton.setToolTipText("MeglÈvı adat mÛdosÌt·sa");
+		ugyfel_modifybutton = new JButton("Adat m√≥dos√≠t√°sa");
+		ugyfel_modifybutton.setToolTipText("Megl√©v√µ adat m√≥dos√≠t√°sa");
 		ugyfel_modifybutton.setBounds(300, 140, 130, 20);
 		ugyfel_modifybutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (ugyfeltm.getRowCount()==0) 
-					DataChecker.showMD("Nincs mÛdosÌthatÛ adat!", 0);
+					DataChecker.showMD("Nincs m√≥dos√≠that√≥ adat!", 0);
 				else {
 					UgyfelMod mod = new UgyfelMod(View.this, ugyfeltm);
 					mod.setVisible(true);
@@ -707,13 +707,13 @@ public class View extends JFrame {
 		
 		
 		//bankfiok_deletebutton
-		ugyfel_deletebutton = new JButton("Adat tˆrlÈse");
-		ugyfel_deletebutton.setToolTipText("A megadott adat tˆrlÈse.");
+		ugyfel_deletebutton = new JButton("Adat t√∂rl√©se");
+		ugyfel_deletebutton.setToolTipText("A megadott adat t√∂rl√©se.");
 		ugyfel_deletebutton.setBounds(300, 180, 130, 20);
 		ugyfel_deletebutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (ugyfeltm.getRowCount()==0) 
-					DataChecker.showMD("Nincs tˆrˆlhetı adat!", 0);
+					DataChecker.showMD("Nincs t√∂r√∂lhet√µ adat!", 0);
 				else {
 					UgyfelDel del = new UgyfelDel(View.this, ugyfeltm);
 					del.setVisible(true);
@@ -726,7 +726,7 @@ public class View extends JFrame {
 		//ugyfel_helpbutton
 		ugyfel_helpbutton = new JButton("?");
 		ugyfel_helpbutton.setFont(fnt);
-		ugyfel_helpbutton.setToolTipText("S˙gÛ");
+		ugyfel_helpbutton.setToolTipText("S√∫g√≥");
 		ugyfel_helpbutton.setBounds(390, 290, 40, 40);
 		ugyfel_helpbutton.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
@@ -737,59 +737,59 @@ public class View extends JFrame {
 		});
 		
 		//ugyfel_savebutton
-		ugyfel_savebutton = new JButton("MentÈs");
+		ugyfel_savebutton = new JButton("Ment√©s");
 		ugyfel_savebutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(ugyfel_cel.equals("V·lasszon!"))
+				if(ugyfel_cel.equals("V√°lasszon!"))
 					DataChecker.showMD(choosesavetype, 1);
 				else if(ugyfeltm.getRowCount()==0)
 					DataChecker.showMD(nosavedata, 0);
-				else if(ugyfel_cel.equals("Helyi .csv f·jl")) {
+				else if(ugyfel_cel.equals("Helyi .csv f√°jl")) {
 					if(ugyfel_outfilename.getText().length()==0)
 						DataChecker.showMD(nosavename, 0);
 					else {
 						UgyfelFileManager.CsvWriter(ugyfel_outfilename.getText().toString(), ugyfeltm);
 					}
-				} else if(ugyfel_cel.equals("Helyi .txt f·jl")) {
+				} else if(ugyfel_cel.equals("Helyi .txt f√°jl")) {
 					if(ugyfel_outfilename.getText().length()==0)
 						DataChecker.showMD(nosavename, 0);
 					else {
 						UgyfelFileManager.TxtWriter(ugyfel_outfilename.getText().toString(), ugyfeltm);
 					}
 				}
-				else if (ugyfel_cel.equals("<<Forr·s>>") && ugyfel_forras.equals("Helyi .csv f·jl")) {
+				else if (ugyfel_cel.equals("<<Forr√°s>>") && ugyfel_forras.equals("Helyi .csv f√°jl")) {
 					String kiirfnev = ugyfel_infilename.getText();
 					ugyfel_outfilename.setText(kiirfnev);
 					UgyfelFileManager.CsvWriter(kiirfnev, ugyfeltm);
 				}
-				else if (ugyfel_cel.equals("<<Forr·s>>") && ugyfel_forras.equals("Helyi .txt f·jl")) {
+				else if (ugyfel_cel.equals("<<Forr√°s>>") && ugyfel_forras.equals("Helyi .txt f√°jl")) {
 					String kiirfnev = ugyfel_infilename.getText();
 					ugyfel_outfilename.setText(kiirfnev);
 					UgyfelFileManager.TxtWriter(kiirfnev, ugyfeltm);
 				}
 			}
 		});
-		ugyfel_savebutton.setToolTipText("Adatok mentÈse a kiv·lasztott f·jlba.");
+		ugyfel_savebutton.setToolTipText("Adatok ment√©se a kiv√°lasztott f√°jlba.");
 		ugyfel_savebutton.setBounds(300, 250, 130, 20);
 						
 		//ugyfel_savecombobox
 		ugyfel_savecombobox = new JComboBox();
-		ugyfel_savecombobox.setToolTipText("A menteni kÌv·nt f·jl tÌpus·nak kiv·laszt·sa.");
+		ugyfel_savecombobox.setToolTipText("A menteni k√≠v√°nt f√°jl t√≠pus√°nak kiv√°laszt√°sa.");
 		ugyfel_savecombobox.setBounds(0, 250, 100, 20);
 		for (String s: elem2) ugyfel_savecombobox.addItem(s);
 		ugyfel_savecombobox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ugyfel_cel = (String)ugyfel_savecombobox.getSelectedItem();
-				if (ugyfel_cel.equals("<<Forr·s>>") && ugyfel_infilename.getText().equals(""))
+				if (ugyfel_cel.equals("<<Forr√°s>>") && ugyfel_infilename.getText().equals(""))
 					DataChecker.showMD(nosource, 0);
-				if (ugyfel_cel.equals("<<Forr·s>>") && !ugyfel_infilename.getText().equals(""))
+				if (ugyfel_cel.equals("<<Forr√°s>>") && !ugyfel_infilename.getText().equals(""))
 					ugyfel_outfilename.setText(ugyfel_infilename.getText());
 			}
 		});
 						
 		//ugyfel_outfilename
 		ugyfel_outfilename = new JTextField();
-		ugyfel_outfilename.setText("f·jlnÈv.kiterjesztÈs");
+		ugyfel_outfilename.setText("f√°jln√©v.kiterjeszt√©s");
 		ugyfel_outfilename.setBounds(115, 250, 170, 20);
 		
 		//ugyfel_infilename
@@ -823,7 +823,7 @@ public class View extends JFrame {
 		szamlak_tab.setLayout(null);
 		szamlak_tab.setBackground(Color.WHITE);
 		
-		BufferedImage szamlakPicture = ImageIO.read(new File("C:\\Users\\RÈvai Istv·n\\Desktop\\BeadandÛ\\szamlak.jpg"));
+		BufferedImage szamlakPicture = ImageIO.read(new File("C:\\Users\\R√©vai Istv√°n\\Desktop\\Beadand√≥\\szamlak.jpg"));
 		JLabel szamlakpicLabel = new JLabel(new ImageIcon(szamlakPicture));
 		szamlakpicLabel.setBounds(0, 60, 285, 170);
 		szamlakpicLabel.setVisible(true);
@@ -831,7 +831,7 @@ public class View extends JFrame {
 		
 		//combobox
 		szamlak_combobox = new JComboBox();
-		szamlak_combobox.setToolTipText("A beolvasni kÌv·nt f·jl tÌpus·nak kiv·laszt·sa.");
+		szamlak_combobox.setToolTipText("A beolvasni k√≠v√°nt f√°jl t√≠pus√°nak kiv√°laszt√°sa.");
 		szamlak_combobox.setBounds(0, 0, 100, 20);
 		for (String s: elem) szamlak_combobox.addItem(s);
 		szamlak_combobox.addActionListener(new ActionListener() {
@@ -842,14 +842,14 @@ public class View extends JFrame {
 		});
 		
 		//file-selecting button
-		szamlak_filebutton = new JButton("BetˆltÈs");
-		szamlak_filebutton.setToolTipText("A betˆlteni kÌv·nt f·jl tallÛz·sa.");
+		szamlak_filebutton = new JButton("Bet√∂lt√©s");
+		szamlak_filebutton.setToolTipText("A bet√∂lteni k√≠v√°nt f√°jl tall√≥z√°sa.");
 		szamlak_filebutton.setBounds(115, 0, 100, 20);
 		szamlak_filebutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(szamlak_forras.equals("V·lasszon!")) 
+				if(szamlak_forras.equals("V√°lasszon!")) 
 					DataChecker.showMD(choosefiletype, 0);
-				if(szamlak_forras.equals("Helyi .csv f·jl")) {
+				if(szamlak_forras.equals("Helyi .csv f√°jl")) {
 					FileDialog fd = new FileDialog(new JFrame(), " ", FileDialog.LOAD);
 					
 					fd.setFile("*.csv");
@@ -861,7 +861,7 @@ public class View extends JFrame {
 						szamlak_infilename.setText(befnev);
 					}
 				}
-				if(szamlak_forras.equals("Helyi .txt f·jl")) {
+				if(szamlak_forras.equals("Helyi .txt f√°jl")) {
 					FileDialog fd = new FileDialog(new JFrame(), " ", FileDialog.LOAD);
 					
 					fd.setFile("*.txt");
@@ -878,7 +878,7 @@ public class View extends JFrame {
 		});
 		
 		//label
-		szamlak_label1 = new JLabel("Az adatok sz·ma:");
+		szamlak_label1 = new JLabel("Az adatok sz√°ma:");
 		szamlak_label1.setBounds(320, 0, 100, 20);
 		
 		//the number of data
@@ -889,8 +889,8 @@ public class View extends JFrame {
 		szamlakdb.setColumns(10);
 		
 		//list button
-		szamlak_listbutton = new JButton("Sz·ml·k lista");
-		szamlak_listbutton.setToolTipText("A megadott f·jl adatainak kilist·z·sa.");
+		szamlak_listbutton = new JButton("Sz√°ml√°k lista");
+		szamlak_listbutton.setToolTipText("A megadott f√°jl adatainak kilist√°z√°sa.");
 		szamlak_listbutton.setBounds(300, 60, 130, 20);
 		szamlak_listbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -900,7 +900,7 @@ public class View extends JFrame {
 		});
 		
 		//bankfiok_newdatabutton
-		szamlak_newbutton = new JButton("⁄j adat");
+		szamlak_newbutton = new JButton("√öj adat");
 		szamlak_newbutton.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
@@ -919,18 +919,18 @@ public class View extends JFrame {
 				}
 			}
 		});
-		szamlak_newbutton.setToolTipText("⁄j adat felvitele.");
+		szamlak_newbutton.setToolTipText("√öj adat felvitele.");
 		szamlak_newbutton.setBounds(300, 100, 130, 20);
 		
 		
 		//bankfiok_modifydatabutton
-		szamlak_modifybutton = new JButton("Adat mÛdosÌt·sa");
-		szamlak_modifybutton.setToolTipText("MeglÈvı adat mÛdosÌt·sa");
+		szamlak_modifybutton = new JButton("Adat m√≥dos√≠t√°sa");
+		szamlak_modifybutton.setToolTipText("Megl√©v√µ adat m√≥dos√≠t√°sa");
 		szamlak_modifybutton.setBounds(300, 140, 130, 20);
 		szamlak_modifybutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (szamlaktm.getRowCount()==0) 
-					DataChecker.showMD("Nincs mÛdosÌthatÛ adat!", 0);
+					DataChecker.showMD("Nincs m√≥dos√≠that√≥ adat!", 0);
 				else {
 					SzamlakMod mod = new SzamlakMod(View.this, szamlaktm);
 					mod.setVisible(true);
@@ -940,13 +940,13 @@ public class View extends JFrame {
 		
 		
 		//bankfiok_deletebutton
-		szamlak_deletebutton = new JButton("Adat tˆrlÈse");
-		szamlak_deletebutton.setToolTipText("A megadott adat tˆrlÈse.");
+		szamlak_deletebutton = new JButton("Adat t√∂rl√©se");
+		szamlak_deletebutton.setToolTipText("A megadott adat t√∂rl√©se.");
 		szamlak_deletebutton.setBounds(300, 180, 130, 20);
 		szamlak_deletebutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (szamlaktm.getRowCount()==0) 
-					DataChecker.showMD("Nincs tˆrˆlhetı adat!", 0);
+					DataChecker.showMD("Nincs t√∂r√∂lhet√µ adat!", 0);
 				else {
 					SzamlakDel del = new SzamlakDel(View.this, szamlaktm);
 					del.setVisible(true);
@@ -959,7 +959,7 @@ public class View extends JFrame {
 		//bankfiok_helpbutton
 		szamlak_helpbutton = new JButton("?");
 		szamlak_helpbutton.setFont(fnt);
-		szamlak_helpbutton.setToolTipText("S˙gÛ");
+		szamlak_helpbutton.setToolTipText("S√∫g√≥");
 		szamlak_helpbutton.setBounds(390, 290, 40, 40);
 		szamlak_helpbutton.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
@@ -970,59 +970,59 @@ public class View extends JFrame {
 		});
 		
 		//szamlak_savebutton
-		szamlak_savebutton = new JButton("MentÈs");
+		szamlak_savebutton = new JButton("Ment√©s");
 		szamlak_savebutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(szamlak_cel.equals("V·lasszon!"))
+				if(szamlak_cel.equals("V√°lasszon!"))
 					DataChecker.showMD(choosesavetype, 1);
 				else if(szamlaktm.getRowCount()==0)
 					DataChecker.showMD(nosavedata, 0);
-				else if(szamlak_cel.equals("Helyi .csv f·jl")) {
+				else if(szamlak_cel.equals("Helyi .csv f√°jl")) {
 					if(szamlak_outfilename.getText().length()==0)
 						DataChecker.showMD(nosavename, 0);
 					else {
 						SzamlakFileManager.CsvWriter(szamlak_outfilename.getText().toString(), szamlaktm);
 					}
-				} else if(szamlak_cel.equals("Helyi .txt f·jl")) {
+				} else if(szamlak_cel.equals("Helyi .txt f√°jl")) {
 					if(szamlak_outfilename.getText().length()==0)
 						DataChecker.showMD(nosavename, 0);
 					else {
 						SzamlakFileManager.TxtWriter(szamlak_outfilename.getText().toString(), szamlaktm);
 					}
 				}
-				else if (szamlak_cel.equals("<<Forr·s>>") && szamlak_forras.equals("Helyi .csv f·jl")) {
+				else if (szamlak_cel.equals("<<Forr√°s>>") && szamlak_forras.equals("Helyi .csv f√°jl")) {
 					String kiirfnev = szamlak_infilename.getText();
 					szamlak_outfilename.setText(kiirfnev);
 					SzamlakFileManager.CsvWriter(kiirfnev, szamlaktm);
 				}
-				else if (szamlak_cel.equals("<<Forr·s>>") && szamlak_forras.equals("Helyi .txt f·jl")) {
+				else if (szamlak_cel.equals("<<Forr√°s>>") && szamlak_forras.equals("Helyi .txt f√°jl")) {
 					String kiirfnev = szamlak_infilename.getText();
 					szamlak_outfilename.setText(kiirfnev);
 					SzamlakFileManager.TxtWriter(kiirfnev, szamlaktm);
 				}
 			}
 		});
-		szamlak_savebutton.setToolTipText("Adatok mentÈse a kiv·lasztott f·jlba.");
+		szamlak_savebutton.setToolTipText("Adatok ment√©se a kiv√°lasztott f√°jlba.");
 		szamlak_savebutton.setBounds(300, 250, 130, 20);
 								
 		//szamlak_savecombobox
 		szamlak_savecombobox = new JComboBox();
-		szamlak_savecombobox.setToolTipText("A menteni kÌv·nt f·jl tÌpus·nak kiv·laszt·sa.");
+		szamlak_savecombobox.setToolTipText("A menteni k√≠v√°nt f√°jl t√≠pus√°nak kiv√°laszt√°sa.");
 		szamlak_savecombobox.setBounds(0, 250, 100, 20);
 		for (String s: elem2) szamlak_savecombobox.addItem(s);
 		szamlak_savecombobox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				szamlak_cel = (String)szamlak_savecombobox.getSelectedItem();
-				if (szamlak_cel.equals("<<Forr·s>>") && szamlak_infilename.getText().equals(""))
+				if (szamlak_cel.equals("<<Forr√°s>>") && szamlak_infilename.getText().equals(""))
 					DataChecker.showMD(nosource, 0);
-				if (szamlak_cel.equals("<<Forr·s>>") && !szamlak_infilename.getText().equals(""))
+				if (szamlak_cel.equals("<<Forr√°s>>") && !szamlak_infilename.getText().equals(""))
 					szamlak_outfilename.setText(szamlak_infilename.getText());
 			}
 		});
 								
 		//szamlak_outfilename
 		szamlak_outfilename = new JTextField();
-		szamlak_outfilename.setText("f·jlnÈv.kiterjesztÈs");
+		szamlak_outfilename.setText("f√°jln√©v.kiterjeszt√©s");
 		szamlak_outfilename.setBounds(115, 250, 170, 20);
 		
 		//szamlak_infilename
@@ -1051,21 +1051,21 @@ public class View extends JFrame {
 		/**
 		 * Add the tabs to the tabbedpane.
 		 */
-		tabbedpane.addTab("Fıoldal", fooldal_tab);
+		tabbedpane.addTab("F√µoldal", fooldal_tab);
 		tabbedpane.addTab("Bank", bank_tab);
-		tabbedpane.addTab("BankfiÛk", bankfiok_tab);
-		tabbedpane.addTab("‹gyfÈl", ugyfel_tab);
-		tabbedpane.addTab("Sz·ml·k", szamlak_tab);
+		tabbedpane.addTab("Bankfi√≥k", bankfiok_tab);
+		tabbedpane.addTab("√úgyf√©l", ugyfel_tab);
+		tabbedpane.addTab("Sz√°ml√°k", szamlak_tab);
 		getContentPane().add(tabbedpane);
 		tabbedpane.setBounds(0, 0, 460, 400);
 		
-		Object banktmn[] = {"Jel", "ID", "NÈv", "CÌm", "Tulajdonos orsz·g"};
+		Object banktmn[] = {"Jel", "ID", "N√©v", "C√≠m", "Tulajdonos orsz√°g"};
 		banktm = new BankTM(banktmn, 0);
-		Object bankfioktmn[] = {"Jel", "FiÛk azon.", "CÌm", "Alkalmazottak", "Bank azon."};
+		Object bankfioktmn[] = {"Jel", "Fi√≥k azon.", "C√≠m", "Alkalmazottak", "Bank azon."};
 		bankfioktm = new BankfiokTM(bankfioktmn, 0);
-		Object ugyfeltmn[] = {"Jel", "SzemÈlyi sz·m", "NÈv", "CÌm", "Tel. sz·m", "Sz¸l. idı", "FiÛk azon."};
+		Object ugyfeltmn[] = {"Jel", "Szem√©lyi sz√°m", "N√©v", "C√≠m", "Tel. sz√°m", "Sz√ºl. id√µ", "Fi√≥k azon."};
 		ugyfeltm = new UgyfelTM(ugyfeltmn, 0);
-		Object szamlaktmn[] = {"Jel", "Sz·mlasz·m", "Egyenleg", "MegnevezÈs", "TÌpus", "‹gyfÈl azon."};
+		Object szamlaktmn[] = {"Jel", "Sz√°mlasz√°m", "Egyenleg", "Megnevez√©s", "T√≠pus", "√úgyf√©l azon."};
 		szamlaktm = new SzamlakTM(szamlaktmn, 0);
 	}
 }
