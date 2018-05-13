@@ -1,0 +1,4 @@
+ID;Név;Cím;Tulajdonosország
+1;Erste;1138 Budapest, Népfürdõ 24;Németország
+2;OTP;1051 Budapest, Nádor 21;Magyarország
+3;twrwe;werwerwe;rwer
